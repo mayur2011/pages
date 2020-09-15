@@ -4,8 +4,7 @@ metadata:
   labels:
     app: pages
   name: pages
-  namespace: [student-name]
-spec:
+  namespace: beta
   ports:
     - name: pages-service-port
       port: 8080
