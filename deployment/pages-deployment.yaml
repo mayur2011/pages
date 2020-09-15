@@ -17,7 +17,7 @@ spec:
         app: pages
     spec:
       containers:
-        - image: dockermayur123/pages:config
+        - image: dockermayur123/pages:pipeline
           name: pages
           ports:
             - containerPort: 8080
