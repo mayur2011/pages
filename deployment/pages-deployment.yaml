@@ -24,7 +24,7 @@ spec:
         hostPath:
           path: /beta
       containers:
-        - image: dockermayur123/pages:quota
+        - image: dockermayur123/pages:distributed
           name: pages
           ports:
             - containerPort: 8080
