@@ -23,14 +23,14 @@ spec:
     spec:
       volumes:
         - name: mysql-persistence-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: mysql-pvc
       containers:
       - image: mysql:8.0
         name: mysql
-        resources: {}
         volumeMounts:
           - name: mysql-persistence-volume
-            mountPath: /docker-entrypoint-initdb.d
+            mountPath: /var/lib/mysql
         env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:

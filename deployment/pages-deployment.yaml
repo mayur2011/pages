@@ -7,7 +7,7 @@ metadata:
   name: pages
   namespace: beta
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: pages
@@ -24,7 +24,7 @@ spec:
         hostPath:
           path: /beta
       containers:
-        - image: dockermayur123/pages:monitor
+        - image: dockermayur123/pages:quota
           name: pages
           ports:
             - containerPort: 8080
@@ -45,7 +45,7 @@ spec:
                   name: pages-config-map
                   key: PAGE_CONTENT
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://pages-mysql/pages
+              value: jdbc:mysql://pages-mysql/pages?allowPublicKeyRetrieval=true&useSSL=false
             - name: SPRING_DATASOURCE_USERNAME
               value: "root"
             - name: SPRING_DATASOURCE_PASSWORD
